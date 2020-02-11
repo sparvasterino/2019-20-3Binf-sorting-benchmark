@@ -1,10 +1,8 @@
-from flask import Flask 
+from flask import Flask
 from benchmark_book import book_list
-
 import json
 
-
-app = Flask("book-Sorting")
+app = Flask("book-sorting")
 
 @app.route("/")
 def index():
@@ -16,4 +14,4 @@ def jquery():
 
 @app.route("/data")
 def data():
-    return json.dumps(book.__dict__ for book in book_list)
+    return json.dumps([book.__dict__ for book in book_list])

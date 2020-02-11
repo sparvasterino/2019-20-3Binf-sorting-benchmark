@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book_Sorting</title>
+    <title>Book sorting</title>
 </head>
 <body>
     <ul></ul>
@@ -11,12 +11,17 @@
 
 <script src="jquery-3.4.1.min.js"></script>
 <script>
-    $.getJSON("data").done(createItems);
+    $.getJSON("/data").done(createItems);
     function createItems(jsonData) {
+        console.log(jsonData);
         for (book of jsonData) {
-            $("ul").append(`<li>${book.author}</li>`);
+            console.log(book.author);
+            $("ul").append(`<li onclick=showCode()>${book.author}</li>`);
         }
-    }    
+    }
+    function showCode(){
+        console.log("Inside Code Showed");
+        alert("la chiave per aprire l'armadietto è AABAB")
+    }
 </script>
-
 </html>
